@@ -12,6 +12,7 @@ export async function initializeDatabase() {
         await db.exec(`CREATE TABLE IF NOT EXISTS reminders (
                             id INTEGER PRIMARY KEY AUTOINCREMENT,
                             title TEXT NOT NULL,
+                            created_time TEXT NOT NULL,
                             isCompleted BOOLEAN NOT NULL
 
         )`)

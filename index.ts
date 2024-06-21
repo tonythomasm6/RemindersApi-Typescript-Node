@@ -1,5 +1,5 @@
 import express from 'express';
-import router  from './routers/reminders'
+import router  from './routers/routers'
 import {initializeDatabase} from './database/db'
 
 const app = express();

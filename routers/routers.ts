@@ -5,7 +5,6 @@ import {getDatabase} from '../database/db'
 
 const router = Router();
 router.get('/', async (req, res) => {
-    console.log('In get method')
     try {
             const db = getDatabase();
             const reminders : Reminder[] = await db.all('SELECT * FROM reminders');
@@ -21,7 +20,7 @@ router.post('/', async (req, res) => {
     const {title} = req.body as CreateReminderDto;
     const reminder = new Reminder(title);
     const db = getDatabase();
-    const result = await db.run('INSERT INTO reminders (title, isCompleted) VALUES (?,?)', reminder.title, reminder.isComplete);
+    const result = await db.run('INSERT INTO reminders (title,created_time, isCompleted) VALUES (?,?,?)', reminder.title, reminder.createTime, reminder.isComplete);
     const newReminderId = result.lastID;
 
     const newReminder: Reminder = await db.all('SELECT * FROM reminders where id=?',newReminderId);
