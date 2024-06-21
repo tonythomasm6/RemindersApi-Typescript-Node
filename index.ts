@@ -1,6 +1,6 @@
 import express from 'express';
 import router  from './routers/routers'
-import {initializeDatabase} from './database/db'
+import {initializeDatabase} from './dao/db'
 
 const app = express();
 app.use(express.json()) // To parse the request to json

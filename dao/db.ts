@@ -5,7 +5,7 @@ let db:Database;
 export async function initializeDatabase() {
     try {
          db = await open({
-            filename: './data/reminders.db',
+            filename: './database/reminders.db',
             driver: sqlite3.Database
         });
 
@@ -13,7 +13,7 @@ export async function initializeDatabase() {
                             id INTEGER PRIMARY KEY AUTOINCREMENT,
                             title TEXT NOT NULL,
                             created_time TEXT NOT NULL,
-                            isCompleted BOOLEAN NOT NULL
+                            is_completed BOOLEAN NOT NULL
 
         )`)
         return db;
