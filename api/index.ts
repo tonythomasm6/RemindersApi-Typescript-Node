@@ -1,8 +1,12 @@
 import express from 'express';
 import router  from './routers/routers'
 import {initializeDatabase} from './dao/db'
+import cors from 'cors';
 
 const app = express();
+
+app.use(cors()); // Apply CORS middleware first
+  
 app.use(express.json()) // To parse the request to json
 app.use('/reminders', router)
 

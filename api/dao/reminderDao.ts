@@ -5,9 +5,9 @@ export class ReminderDao{
 
     async getAllReminders(): Promise<Reminder[]> {
         try {
-                const db = getDatabase();
-                const reminders = await db.all('SELECT * FROM reminders');
-                return reminders;
+            const db = getDatabase();
+            const reminders = await db.all('SELECT * FROM reminders');
+            return reminders;
         }catch(error){
             console.error('Error in getting reminders')
             throw new Error('Error in getting Reminders')
@@ -16,9 +16,9 @@ export class ReminderDao{
 
     async getReminder(id:number): Promise<Reminder> {
         try {
-                const db = getDatabase();
-                const reminder : Reminder = await db.all('SELECT * FROM reminders WHERE id=?',id);
-                return reminder;
+            const db = getDatabase();
+            const reminder : Reminder = await db.all('SELECT * FROM reminders WHERE id=?',id);
+            return reminder;
         }catch(error){
             console.error('Error in getting reminders')
             throw new Error('Error in getting Reminders')

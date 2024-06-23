@@ -1,0 +1,20 @@
+<div class="reminder-container">
+    <h2>Reminders</h2>
+  
+    <ul class="reminder-list">
+      <li *ngFor="let reminder of reminders" class="reminder-item">
+        <span>{{ reminder.title }}</span>
+        <span>{{ reminder.createTime}}</span>
+        <button class="btn btn-delete" (click)="deleteReminder(reminder.id)">Delete</button>
+        <!-- Optionally add an Update button -->
+        <!-- <button class="btn btn-update" (click)="updateReminder(reminder.id, 'Updated Title')">Update</button> -->
+      </li>
+    </ul>
+  
+    <form class="add-form" (submit)="addReminder()">
+      <label for="newTitle">Add Reminder:</label>
+      <input id="newTitle" type="text" [(ngModel)]="newTitle" name="newTitle" required>
+      <button type="submit" class="btn btn-add">Add</button>
+    </form>
+  </div>
+  
