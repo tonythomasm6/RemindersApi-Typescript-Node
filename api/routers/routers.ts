@@ -28,8 +28,8 @@ router.delete("/:id", async (req, res) => {
         res.status(204).send();
 })
 
-router.put("/:id", async (req, res) => {
-        const result = await reminderService.updateReminder(req.params.id);
+router.put("/:id/:isComplete", async (req, res) => {
+        const result = await reminderService.updateReminder(req.params.id, req.params.isComplete);
         if (result.changes === 0){
             return res.status(400).json({error : `Reminder not found for the id ${req.params.id}`})
         }

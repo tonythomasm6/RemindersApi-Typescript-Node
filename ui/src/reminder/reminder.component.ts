@@ -44,13 +44,17 @@ export class ReminderComponent  implements OnInit{
     )
   }
 
-  updateReminderStatus(id: number) {
-    this.apiService.updateReminderStatus(id).subscribe(
-      updatedReminder => {
-        const index = this.reminders.findIndex(r => r.id === updatedReminder.id);
-        if (index !== -1) {
-          this.reminders[index] = updatedReminder;
-        }
+  updateReminderStatus(reminder: Reminder) {
+    this.apiService.updateReminderStatus(reminder.id, reminder.isComplete).subscribe(
+      // updatedReminder => {
+      //   alert(updatedReminder.isComplete)
+      //   const index = this.reminders.findIndex(r => r.id === updatedReminder.id);
+      //   if (index !== -1) {
+      //     this.reminders[index] = updatedReminder;
+      //   }
+      // },
+      () => {
+        this.loadAllReminders();
       },
       error => console.error('Error updating reminder', error)
     );

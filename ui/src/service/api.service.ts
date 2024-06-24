@@ -20,8 +20,8 @@ export class ApiService {
     return this.http.post<Reminder>(this.apiUrl, {"title": title});
   }
 
-  updateReminderStatus(id:number): Observable<Reminder>{
-    return this.http.put<Reminder>(`${this.apiUrl}/${id}`, {})
+  updateReminderStatus(id:number, isComplete: boolean): Observable<Reminder>{
+    return this.http.put<Reminder>(`${this.apiUrl}/${id}/${isComplete}`, {})
   }
 
   deleteReminder(id: number): Observable<void> {
