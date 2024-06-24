@@ -4,6 +4,7 @@ import { Reminder } from '../model/reminder';
 import { ApiService } from '../service/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ReminderComponent  implements OnInit{
     
-  constructor(private apiService: ApiService){
+  constructor(private apiService: ApiService, private router: Router){
 
   }
 
@@ -25,6 +26,10 @@ export class ReminderComponent  implements OnInit{
 
   ngOnInit(): void {
       this.loadAllReminders();
+  }
+
+  navigateToAbout(): void {
+    this.router.navigateByUrl('/about')
   }
 
   loadAllReminders(): void{
